@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/40bqtpwmupq6c83f?svg=true)](https://ci.appveyor.com/project/StarostinaEka/bankapi)
