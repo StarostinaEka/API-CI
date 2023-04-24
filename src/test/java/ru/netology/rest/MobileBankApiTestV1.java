@@ -1,10 +1,15 @@
 package ru.netology.rest;
 
+import io.restassured.http.ContentType;
+import io.restassured.matcher.ResponseAwareMatcher;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 
 class MobileBankApiTestV1 {
     @Test
@@ -33,7 +38,12 @@ class MobileBankApiTestV1 {
                 .get("/demo/accounts")
                 // Проверки
                 .then()
-                .body("it.currency", "enum": ["RUB", "USD"]);
+                //.body("it.currency", "enum": ["RUB", "USD"]);
+                .contentType(ContentType.JSON)
+                .body("", hasSize(3))
+                .body("[0].currency", equalTo("RUB"))
+                .body("[1].currency", equalTo("USD"));
 
     }
+
 }
