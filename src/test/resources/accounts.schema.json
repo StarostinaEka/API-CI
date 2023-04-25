@@ -26,11 +26,11 @@
         "type": "integer"
       },
       "currency": {
-        "type": "string",
-        "enum": [
-          "RUR",
-          "USD"
-        ]
+          "type": "string",
+          "enum": [
+            "RUR",
+            "USD"
+          ]
       }
     }
   }
